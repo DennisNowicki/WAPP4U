@@ -43,6 +43,12 @@
                         <span class="nav-link-inner--text" style="font-size: 18px">{{ __('Builder') }}</span>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link nav-link-icon" href="{{ ('contact') }}">
+                        <i class="ni ni-planet"></i>
+                        <span class="nav-link-inner--text" style="font-size: 18px">Contact</span>
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
