@@ -24,7 +24,7 @@
                                 <thead class="thead-light">
                                     <tr>
                                         <th>Name</th>
-                                        <th>Fee</th>
+                                        <th>Fees</th>
                                         <th>Min Hours</th>
                                         <th>Max Hours</th>
                                         <th>Update</th>
