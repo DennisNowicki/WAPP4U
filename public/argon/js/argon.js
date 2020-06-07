@@ -1014,8 +1014,8 @@ var SalesChart = (function() {
 						},
 						ticks: {
 							callback: function(value) {
-								if (!(value % 10)) {
-									return '$' + value + 'k';
+								if (!(value % 1)) {
+									return value;
 								}
 							}
 						}
@@ -1039,10 +1039,10 @@ var SalesChart = (function() {
 				}
 			},
 			data: {
-				labels: ['May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+				labels: ['Admin', 'Calendar', 'Shopping cart', 'Chatbox', 'Database', 'Geolocation', 'Multilanguage', 'Login Systems', 'Media Support', 'Notifications', 'Payment Service', 'Statistics', 'Tech Support', 'File Upload', 'User Experience'],
 				datasets: [{
 					label: 'Performance',
-					data: [0, 20, 10, 30, 15, 40, 20, 60, 60]
+					data: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 				}]
 			}
 		});
