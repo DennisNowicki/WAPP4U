@@ -26,6 +26,7 @@ Auth::routes();
 Route::get('/dashboard', 'HomeController@index')->name('dashboard');
 Route::get('/builder', 'BuilderController@show')->name('builder');
 Route::get('/application', 'ApplicationController@overview')->name('application');
+Route::get('/components', 'ComponentsController@comp')->name('component');
 
 Route::group(['middleware' => 'auth'], function () {
 	Route::resource('user', 'UserController', ['except' => ['show']]);

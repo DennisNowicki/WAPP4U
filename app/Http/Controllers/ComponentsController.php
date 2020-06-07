@@ -89,4 +89,12 @@ class ComponentsController extends Controller
             return new ComponentResource($component);
         }
     }
+
+    public function comp(){
+        
+        $components = Component::all();
+        return view('component.component')
+        ->with('components', $components);
+        
+    }
 }
