@@ -21,7 +21,7 @@
     <div class="container">
         <div class="navbar-translate">
             <a class="navbar-brand" href="{{ route('home') }}">
-                <span class="nav-link-inner--text" style="font-size: 30px">{{ __('WAPP4U') }}</span>
+                <span class="nav-link-inner--text">{{ __('WAPP4U') }}</span>
             </a>
             <button class="navbar-toggler navbar-burger" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation" (click)="sidebarToggle()">
                 <span class="navbar-toggler-bar"></span>
@@ -34,13 +34,13 @@
                 <li class="nav-item">
                     <a class="nav-link nav-link-icon" href="{{ route('home') }}">
                         <i class="ni ni-planet"></i>
-                        <span class="nav-link-inner--text" style="font-size: 18px">{{ __('Home') }}</span>
+                        <span class="nav-link-inner--text">{{ __('Home') }}</span>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link nav-link-icon" href="{{ route('builder') }}">
                         <i class="ni ni-planet"></i>
-                        <span class="nav-link-inner--text" style="font-size: 18px">{{ __('Builder') }}</span>
+                        <span class="nav-link-inner--text">{{ __('Builder') }}</span>
                     </a>
                 </li>
                 <li class="nav-item">

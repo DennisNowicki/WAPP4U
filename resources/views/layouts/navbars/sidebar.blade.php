@@ -85,7 +85,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/application">
-                        <i class="ni ni-tv-2 text-primary"></i> {{ __('Applications') }}
+                        <i class="ni ni-tv-2 text-primary"></i> {{ __('Applications') }} <span class="text-danger ml-5 px-2 py-1 border border-danger rounded-circle"><b>{{count($notFinished)}}</b></span>
                     </a>
                 </li>
                 <li class="nav-item">
