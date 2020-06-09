@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Component;
+use App\Application;
 use App\Http\Resources\Component as ComponentResource;
 
 class ComponentsController extends Controller
@@ -93,7 +94,9 @@ class ComponentsController extends Controller
     public function comp(){
         
         $components = Component::all();
+        $notFinished = Application::where('finished','0')->get();
         return view('component.component')
+        ->with('notFinished', $notFinished)
         ->with('components', $components);
         
     }
