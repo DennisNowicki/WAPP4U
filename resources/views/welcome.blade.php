@@ -47,6 +47,12 @@
                         <span class="nav-link-inner--text">{{ __('Builder') }}</span>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link nav-link-icon" href="{{ ('contact') }}">
+                        <i class="ni ni-planet"></i>
+                        <span class="nav-link-inner--text" style="font-size: 18px">Contact</span>
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
@@ -157,40 +163,16 @@
 
 
 <!--  questions div -->
-<div class="section landing-section">
+<div class="section landing-section text-center">
     <div class="container">
         <div class="row">
             <div class="col-md-8 mr-auto ml-auto">
                 <h2 class="text-center title">Questions?</h2>
-                <form class="contact-form">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <label>Name</label>
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                  <span class="input-group-text"><i class="nc-icon nc-single-02"></i></span>
-                                </div>
-                                <input type="text" class="form-control" placeholder="Name" (focus)="focus=true" (blur)="focus=false" >
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <label>Email</label>
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                  <span class="input-group-text">  <i class="nc-icon nc-email-85"></i></span>
-                                </div>
-                                <input type="text" class="form-control" placeholder="Email" (focus)="focus1=true" (blur)="focus1=false" >
-                            </div>
-                        </div>
-                    </div>
-                    <label>Message</label>
-                    <textarea class="form-control" rows="4" placeholder="What can we help you with?"></textarea>
-                    <div class="row">
-                        <div class="col-md-4 mr-auto ml-auto">
-                            <button class="btn btn-primary btn-lg btn-fill">Send Message</button>
-                        </div>
-                    </div>
-                </form>
+                <h5 class="description">Got a question? We'd love to hear from you. Click here to go to our contactform and send us your question.
+                  </h5>
+                <br>
+                <a href="/contact" class="btn btn-outline-primary btn-round" style="font-size: 25px">Go to contactform</a>
+                
             </div>
         </div>
     </div>
@@ -209,6 +191,9 @@
                   <li>
                   <a>builder</a>
                   </li>
+                  <li>
+                    <a>Contact</a>
+                    </li>
               </ul>
           </nav>
           <div class="credits ml-auto">
