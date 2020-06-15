@@ -11,20 +11,23 @@
         <link href="/assets/css/paper-kit.css?v=2.2.0" rel="stylesheet" />
         <!-- CSS Just for demo purpose, don't include it in your project -->
         <link href="/assets/demo/demo.css" rel="stylesheet" />
-        <link href="/assets/css/customStyling.css" rel="stylesheet">
+        
         <style> 
-        .staydown {
-            
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            height: 100px;
-            width: 100%;
-            }
+       
 
             body { 
-    padding-top: 90px; 
-}
+            padding-top: 90px;
+            padding-bottom: 150px;
+            
+                }
+            .footerdown{
+                position: fixed;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                
+            }
+            
         </style>
         
     </head> 
@@ -77,7 +80,12 @@
         
         <h5 class="text-left title">Got a question? We'd love to hear from you. Fill in this form and we'll get in touch asap!</h5>
         </div>
-    </div>
+    
+    @if(session()->has('message'))
+    <div class="alert alert-success" role="alert" style="color: black">
+        <strong>Succes!</strong>  {{ session()->get('message')}}
+      </div>
+    @endif
 
     <div class="container">
     <form action="/contact" method="POST">
@@ -89,9 +97,11 @@
                   <span class="input-group-text"><i class="nc-icon nc-single-02"></i></span>
                 </div>
             <input type="text" name="name" value="{{ old('name') }}" class="form-control" placeholder="Name" (focus)="focus=true" (blur)="focus=false">
-            <div>{{ $errors->first('name') }}</div>
+            <div>{{ $errors->first('name') }}
+            </div>
         </div>
     </div>
+        </div>
 
         <div class="form-group">
             <div class="col-md">
@@ -101,7 +111,8 @@
                   <span class="input-group-text">  <i class="nc-icon nc-email-85"></i></span>
                 </div>
             <input type="text" name="email" value="{{ old('email') }}" class="form-control" placeholder="Email">
-            <div>{{ $errors->first('email') }}</div>
+            <div>{{ $errors->first('email') }}
+            </div>
         </div>
             </div>
 
@@ -122,8 +133,11 @@
 </div>
 
 
+</body>
+
+
 <!-- footer -->
-<footer class="footer bg-dark staydown">
+<footer class="footer bg-dark footerdown">
     <div class="container">
         <div class="row">
             <nav class="footer-nav">
@@ -135,8 +149,8 @@
                     <a>builder</a>
                     </li>
                     <li>
-                        <a>Contact</a>
-                        </li>
+                      <a>Contact</a>
+                      </li>
                 </ul>
             </nav>
             <div class="credits ml-auto">
@@ -147,6 +161,6 @@
         </div>
     </div>
   </footer>
-</body>
+
 </html>
     
