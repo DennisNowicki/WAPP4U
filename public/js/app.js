@@ -2057,6 +2057,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2106,6 +2122,7 @@ __webpack_require__.r(__webpack_exports__);
     deleteComponent: function deleteComponent(component) {
       var index = this.chosenComponents.indexOf(component);
       this.chosenComponents.splice(index, 1);
+      document.getElementById(component.name).checked = false;
     },
     addComponent: function addComponent(component) {
       if (this.chosenComponents.includes(component)) {
@@ -2116,6 +2133,9 @@ __webpack_require__.r(__webpack_exports__);
 
       console.log(this.chosenComponents);
       console.log(this.components);
+    },
+    log: function log() {
+      console.log('clicked');
     }
   }
 });
@@ -37666,261 +37686,416 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container builder-container mt-5 mb-5" }, [
-    _c("div", { staticClass: "row" }, [
-      _c(
-        "div",
-        {
-          directives: [
-            {
-              name: "show",
-              rawName: "v-show",
-              value: _vm.userSettings,
-              expression: "userSettings"
-            }
-          ],
-          staticClass: "col-md-12 col-lg-8 mt-5"
-        },
-        [
-          _c("h2", [_vm._v("User Settings")]),
-          _vm._v(" "),
-          _c("hr"),
-          _vm._v(" "),
-          _c("br"),
-          _vm._v(" "),
-          _c(
-            "form",
-            {
-              directives: [
-                {
-                  name: "show",
-                  rawName: "v-show",
-                  value: _vm.form1,
-                  expression: "form1"
-                }
-              ]
-            },
-            [
-              _c("div", { staticClass: "form-group" }, [
-                _c("label", { attrs: { for: "usageType" } }, [
-                  _vm._v("Application usage")
-                ]),
-                _vm._v(" "),
-                _c(
-                  "select",
+    _c("form", { attrs: { action: "/applications" } }, [
+      _c("div", { staticClass: "row" }, [
+        _c(
+          "div",
+          {
+            directives: [
+              {
+                name: "show",
+                rawName: "v-show",
+                value: _vm.userSettings,
+                expression: "userSettings"
+              }
+            ],
+            staticClass: "col-md-12 col-lg-8 mt-5"
+          },
+          [
+            _c("h2", [_vm._v("User Settings")]),
+            _vm._v(" "),
+            _c("hr"),
+            _vm._v(" "),
+            _c("br"),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                directives: [
                   {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.usageType,
-                        expression: "usageType"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { id: "usageType" },
-                    on: {
-                      change: function($event) {
-                        var $$selectedVal = Array.prototype.filter
-                          .call($event.target.options, function(o) {
-                            return o.selected
-                          })
-                          .map(function(o) {
-                            var val = "_value" in o ? o._value : o.value
-                            return val
-                          })
-                        _vm.usageType = $event.target.multiple
-                          ? $$selectedVal
-                          : $$selectedVal[0]
-                      }
-                    }
-                  },
-                  [
-                    _c("option", [
-                      _vm._v("Static display of media (informative)")
-                    ]),
-                    _vm._v(" "),
-                    _c("option", [
-                      _vm._v(
-                        "Dynamic display of media (informative and/or entertainment)"
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("option", [_vm._v("E-commerce")]),
-                    _vm._v(" "),
-                    _c("option", [_vm._v("Web portal (forum/social media)")]),
-                    _vm._v(" "),
-                    _c("option", [_vm._v("CMS based website")])
-                  ]
-                ),
-                _c("br"),
-                _vm._v(" "),
-                _c("label", { attrs: { for: "pagesCount" } }, [
-                  _vm._v("How many pages do you want?")
-                ]),
-                _c("br"),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.amountPages,
-                      expression: "amountPages"
-                    }
-                  ],
-                  staticStyle: { "text-align": "center" },
-                  attrs: { type: "number" },
-                  domProps: { value: _vm.amountPages },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.amountPages = $event.target.value
-                    }
+                    name: "show",
+                    rawName: "v-show",
+                    value: _vm.form1,
+                    expression: "form1"
                   }
-                }),
-                _vm._v(" "),
-                _c("br"),
-                _c("br"),
-                _vm._v(" "),
-                _c("label", { attrs: { for: "description" } }, [
-                  _vm._v("Please describe your idea")
-                ]),
-                _vm._v(" "),
-                _c("textarea", {
-                  directives: [
+                ]
+              },
+              [
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", { attrs: { for: "usageType" } }, [
+                    _vm._v("Application usage")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "select",
                     {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.message,
-                      expression: "message"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: {
-                    name: "description",
-                    placeholder: "Description",
-                    id: "description",
-                    rows: "3"
-                  },
-                  domProps: { value: _vm.message },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.message = $event.target.value
-                    }
-                  }
-                })
-              ]),
-              _vm._v(" "),
-              _c(
-                "button",
-                {
-                  staticClass: "btn btn-primary",
-                  attrs: { type: "button" },
-                  on: { click: _vm.showForm2 }
-                },
-                [_vm._v("Next")]
-              ),
-              _vm._v(" "),
-              _c("br"),
-              _vm._v(" "),
-              _c("br")
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "form",
-            {
-              directives: [
-                {
-                  name: "show",
-                  rawName: "v-show",
-                  value: _vm.form2,
-                  expression: "form2"
-                }
-              ]
-            },
-            [
-              _c(
-                "div",
-                { staticClass: "form-group d-flex flex-wrap" },
-                _vm._l(_vm.components, function(component) {
-                  return _c(
-                    "a",
-                    {
-                      key: component.id,
-                      staticClass: "component-anchor",
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.usageType,
+                          expression: "usageType"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { id: "usageType", name: "type" },
                       on: {
-                        click: function($event) {
-                          return _vm.addComponent(component)
+                        change: function($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function(o) {
+                              return o.selected
+                            })
+                            .map(function(o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.usageType = $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
                         }
                       }
                     },
                     [
-                      _c(
-                        "div",
-                        {
-                          staticClass: "card",
-                          staticStyle: { width: "11rem" }
-                        },
-                        [
+                      _c("option", [
+                        _vm._v("Static display of media (informative)")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", [
+                        _vm._v(
+                          "Dynamic display of media (informative and/or entertainment)"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("option", [_vm._v("E-commerce")]),
+                      _vm._v(" "),
+                      _c("option", [_vm._v("Web portal (forum/social media)")]),
+                      _vm._v(" "),
+                      _c("option", [_vm._v("CMS based website")])
+                    ]
+                  ),
+                  _c("br"),
+                  _vm._v(" "),
+                  _c("label", { attrs: { for: "pagesCount" } }, [
+                    _vm._v("How many pages do you want?")
+                  ]),
+                  _c("br"),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.amountPages,
+                        expression: "amountPages"
+                      }
+                    ],
+                    staticStyle: { "text-align": "center" },
+                    attrs: { type: "number", name: "amountPages" },
+                    domProps: { value: _vm.amountPages },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.amountPages = $event.target.value
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("br"),
+                  _c("br"),
+                  _vm._v(" "),
+                  _c("label", { attrs: { for: "pageNames" } }, [
+                    _vm._v("Enter the pages you'd like on your website")
+                  ]),
+                  _vm._v(" "),
+                  _c("textarea", {
+                    staticClass: "form-control",
+                    attrs: {
+                      name: "pageNames",
+                      placeholder: "Page names",
+                      id: "pageNames",
+                      rows: "3"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("br"),
+                  _c("br"),
+                  _vm._v(" "),
+                  _c("label", { attrs: { for: "description" } }, [
+                    _vm._v("Please describe your idea")
+                  ]),
+                  _vm._v(" "),
+                  _c("textarea", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.message,
+                        expression: "message"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      placeholder: "Description",
+                      name: "applicationDescription",
+                      rows: "3"
+                    },
+                    domProps: { value: _vm.message },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.message = $event.target.value
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-primary",
+                    attrs: { type: "button" },
+                    on: { click: _vm.showForm2 }
+                  },
+                  [_vm._v("Next")]
+                ),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                _c("br")
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                directives: [
+                  {
+                    name: "show",
+                    rawName: "v-show",
+                    value: _vm.form2,
+                    expression: "form2"
+                  }
+                ]
+              },
+              [
+                _c(
+                  "div",
+                  { staticClass: "form-group d-flex flex-wrap" },
+                  _vm._l(_vm.components, function(component) {
+                    return _c(
+                      "label",
+                      {
+                        key: component.id,
+                        staticClass: "component-name",
+                        attrs: { for: component.name },
+                        on: {
+                          click: function($event) {
+                            return _vm.log()
+                          }
+                        }
+                      },
+                      [
+                        _c("a", { staticClass: "component-anchor" }, [
                           _c(
                             "div",
-                            { staticClass: "card-body text-center center" },
+                            {
+                              staticClass: "card",
+                              staticStyle: { width: "11rem" }
+                            },
                             [
-                              _c("p", { staticClass: "component-name" }, [
-                                _vm._v(_vm._s(component.name))
-                              ]),
-                              _vm._v(" "),
-                              _c("img", {
-                                staticClass: "component-icon",
-                                attrs: {
-                                  src:
-                                    "assets/img/icons/" +
-                                    component.path +
-                                    ".png",
-                                  alt: ""
-                                }
-                              })
+                              _c(
+                                "div",
+                                { staticClass: "card-body text-center center" },
+                                [
+                                  _c("input", {
+                                    attrs: {
+                                      type: "checkbox",
+                                      value: "1",
+                                      id: component.name,
+                                      name: component.path
+                                    },
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.addComponent(component)
+                                      }
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c("p", { staticClass: "component-name" }, [
+                                    _vm._v(_vm._s(component.name))
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("img", {
+                                    staticClass: "component-icon",
+                                    attrs: {
+                                      src:
+                                        "assets/img/icons/" +
+                                        component.path +
+                                        ".png",
+                                      alt: ""
+                                    }
+                                  })
+                                ]
+                              )
                             ]
                           )
-                        ]
-                      )
-                    ]
+                        ])
+                      ]
+                    )
+                  }),
+                  0
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-primary",
+                    attrs: { type: "button" },
+                    on: { click: _vm.showForm1 }
+                  },
+                  [_vm._v("Previous")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-primary float-right",
+                    attrs: { type: "button" },
+                    on: { click: _vm.showForm3 }
+                  },
+                  [_vm._v("Next")]
+                ),
+                _c("br"),
+                _c("br")
+              ]
+            )
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            directives: [
+              {
+                name: "show",
+                rawName: "v-show",
+                value: _vm.userSettings,
+                expression: "userSettings"
+              }
+            ],
+            staticClass: "col-md-12 col-lg-4 mt-5",
+            staticStyle: { "background-color": "g" }
+          },
+          [
+            _c(
+              "div",
+              {
+                staticClass: "card overview-card",
+                staticStyle: { "max-width": "42rem" }
+              },
+              [
+                _c("div", { staticClass: "card-header" }, [
+                  _vm._v(
+                    "\n                        Overview of application\n                    "
                   )
-                }),
-                0
-              ),
-              _vm._v(" "),
-              _c(
-                "button",
-                {
-                  staticClass: "btn btn-primary",
-                  attrs: { type: "button" },
-                  on: { click: _vm.showForm1 }
-                },
-                [_vm._v("Previous")]
-              ),
-              _vm._v(" "),
-              _c(
-                "button",
-                {
-                  staticClass: "btn btn-primary float-right",
-                  attrs: { type: "button" },
-                  on: { click: _vm.showForm3 }
-                },
-                [_vm._v("Next")]
-              ),
-              _c("br"),
-              _c("br")
-            ]
-          )
-        ]
-      ),
+                ]),
+                _vm._v(" "),
+                _c("ul", { staticClass: "list-group list-group-flush" }, [
+                  _c("li", { staticClass: "list-group-item" }, [
+                    _vm._v(
+                      "\n                            " +
+                        _vm._s(_vm.usageType) +
+                        "\n                        "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("li", { staticClass: "list-group-item" }, [
+                    _vm._v(
+                      "\n                            " +
+                        _vm._s(_vm.amountPages) +
+                        "\n                        "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("li", { staticClass: "list-group-item" }, [
+                    _vm._v(
+                      "\n                            " +
+                        _vm._s(_vm.message) +
+                        "\n                        "
+                    )
+                  ])
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _c("br"),
+            _vm._v(" "),
+            _c("br"),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "card overview-card",
+                staticStyle: { "max-width": "42rem" }
+              },
+              [
+                _c("div", { staticClass: "card-header" }, [
+                  _vm._v(
+                    "\n                        Overview of selected items\n                    "
+                  )
+                ]),
+                _vm._v(" "),
+                _c(
+                  "ul",
+                  { staticClass: "list-group list-group-flush" },
+                  _vm._l(_vm.chosenComponents, function(component) {
+                    return _c(
+                      "li",
+                      { key: component.id, staticClass: "list-group-item" },
+                      [
+                        _c("img", {
+                          staticClass: "card-icon-custom",
+                          attrs: {
+                            src: "assets/img/icons/" + component.path + ".png",
+                            alt: ""
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("p", { staticClass: "component-name" }, [
+                          _vm._v(_vm._s(component.name))
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          {
+                            staticClass:
+                              "btn btn-outline-danger btn-sm btn-just-icon erase",
+                            on: {
+                              click: function($event) {
+                                return _vm.deleteComponent(component)
+                              }
+                            }
+                          },
+                          [_vm._v("X")]
+                        )
+                      ]
+                    )
+                  }),
+                  0
+                )
+              ]
+            ),
+            _vm._v(" "),
+            _c("br"),
+            _vm._v(" "),
+            _c("br")
+          ]
+        )
+      ]),
       _vm._v(" "),
       _c(
         "div",
@@ -37929,219 +38104,99 @@ var render = function() {
             {
               name: "show",
               rawName: "v-show",
-              value: _vm.userSettings,
-              expression: "userSettings"
+              value: _vm.form3,
+              expression: "form3"
             }
           ],
-          staticClass: "col-md-12 col-lg-4 mt-5",
-          staticStyle: { "background-color": "g" }
+          staticClass: "row"
         },
         [
-          _c(
-            "div",
-            {
-              staticClass: "card overview-card",
-              staticStyle: { "max-width": "42rem" }
-            },
-            [
-              _c("div", { staticClass: "card-header" }, [
-                _vm._v(
-                  "\n                    Overview of application\n                "
-                )
-              ]),
-              _vm._v(" "),
-              _c("ul", { staticClass: "list-group list-group-flush" }, [
-                _c("li", { staticClass: "list-group-item" }, [
-                  _vm._v(
-                    "\n                        " +
-                      _vm._s(_vm.usageType) +
-                      "\n                    "
+          _c("div", { staticClass: "col-12" }, [
+            _c("div", [
+              _c("div", { staticClass: "container" }, [
+                _c("h2", [_vm._v("Overview of selected items:")]),
+                _vm._v(" "),
+                _c("hr"),
+                _vm._v(" "),
+                _c("h4", [
+                  _vm._v("Selected Webapplication "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-primary",
+                      staticStyle: { float: "right" },
+                      attrs: { type: "button" },
+                      on: { click: _vm.showForm1 }
+                    },
+                    [_vm._v("Change")]
                   )
                 ]),
                 _vm._v(" "),
-                _c("li", { staticClass: "list-group-item" }, [
-                  _vm._v(
-                    "\n                        " +
-                      _vm._s(_vm.amountPages) +
-                      "\n                    "
+                _c("br"),
+                _vm._v(" "),
+                _c("ul", [
+                  _c("li", { staticStyle: { "font-size": "16px" } }, [
+                    _vm._v(_vm._s(_vm.usageType))
+                  ]),
+                  _vm._v(" "),
+                  _c("li", { staticStyle: { "font-size": "16px" } }, [
+                    _vm._v(_vm._s(_vm.amountPages))
+                  ]),
+                  _vm._v(" "),
+                  _c("li", { staticStyle: { "font-size": "16px" } }, [
+                    _vm._v(_vm._s(_vm.message))
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("h4", [
+                  _vm._v("Selected Components "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-primary",
+                      staticStyle: { float: "right" },
+                      attrs: { type: "button" },
+                      on: { click: _vm.showForm2 }
+                    },
+                    [_vm._v("Change")]
                   )
                 ]),
                 _vm._v(" "),
-                _c("li", { staticClass: "list-group-item" }, [
-                  _vm._v(
-                    "\n                        " +
-                      _vm._s(_vm.message) +
-                      "\n                    "
-                  )
-                ])
-              ])
-            ]
-          ),
-          _vm._v(" "),
-          _c("br"),
-          _vm._v(" "),
-          _c("br"),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: "card overview-card",
-              staticStyle: { "max-width": "42rem" }
-            },
-            [
-              _c("div", { staticClass: "card-header" }, [
-                _vm._v(
-                  "\n                    Overview of selected items\n                "
-                )
-              ]),
-              _vm._v(" "),
-              _c(
-                "ul",
-                { staticClass: "list-group list-group-flush" },
-                _vm._l(_vm.chosenComponents, function(component) {
-                  return _c(
-                    "li",
-                    { key: component.id, staticClass: "list-group-item" },
-                    [
-                      _c("img", {
-                        staticClass: "card-icon-custom",
-                        attrs: {
-                          src: "assets/img/icons/" + component.path + ".png",
-                          alt: ""
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("p", { staticClass: "component-name" }, [
-                        _vm._v(_vm._s(component.name))
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "button",
-                        {
-                          staticClass:
-                            "btn btn-outline-danger btn-sm btn-just-icon erase",
-                          on: {
-                            click: function($event) {
-                              return _vm.deleteComponent(component)
-                            }
+                _c("br"),
+                _vm._v(" "),
+                _c(
+                  "ul",
+                  _vm._l(_vm.chosenComponents, function(component) {
+                    return _c(
+                      "li",
+                      { key: component.id, staticClass: "list-group-item" },
+                      [
+                        _c("img", {
+                          staticClass: "card-icon-custom",
+                          attrs: {
+                            src: "assets/img/icons/" + component.path + ".png",
+                            alt: ""
                           }
-                        },
-                        [_vm._v("X")]
-                      )
-                    ]
-                  )
-                }),
-                0
-              )
-            ]
-          ),
-          _vm._v(" "),
-          _c("br"),
-          _vm._v(" "),
-          _c("br")
+                        }),
+                        _vm._v(" "),
+                        _c("p", { staticClass: "component-name" }, [
+                          _vm._v(_vm._s(component.name))
+                        ])
+                      ]
+                    )
+                  }),
+                  0
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _vm._m(0),
+            _vm._v(" "),
+            _c("br")
+          ])
         ]
       )
-    ]),
-    _vm._v(" "),
-    _c(
-      "div",
-      {
-        directives: [
-          {
-            name: "show",
-            rawName: "v-show",
-            value: _vm.form3,
-            expression: "form3"
-          }
-        ],
-        staticClass: "row"
-      },
-      [
-        _c("div", { staticClass: "col-12" }, [
-          _c("div", [
-            _c("div", { staticClass: "container" }, [
-              _c("h2", [_vm._v("Overview of selected items:")]),
-              _vm._v(" "),
-              _c("hr"),
-              _vm._v(" "),
-              _c("h4", [
-                _vm._v("Selected Webapplication "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-primary",
-                    staticStyle: { float: "right" },
-                    attrs: { type: "button" },
-                    on: { click: _vm.showForm1 }
-                  },
-                  [_vm._v("Change")]
-                )
-              ]),
-              _vm._v(" "),
-              _c("br"),
-              _vm._v(" "),
-              _c("ul", [
-                _c("li", { staticStyle: { "font-size": "16px" } }, [
-                  _vm._v(_vm._s(_vm.usageType))
-                ]),
-                _vm._v(" "),
-                _c("li", { staticStyle: { "font-size": "16px" } }, [
-                  _vm._v(_vm._s(_vm.amountPages))
-                ]),
-                _vm._v(" "),
-                _c("li", { staticStyle: { "font-size": "16px" } }, [
-                  _vm._v(_vm._s(_vm.message))
-                ])
-              ]),
-              _vm._v(" "),
-              _c("h4", [
-                _vm._v("Selected Components "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-primary",
-                    staticStyle: { float: "right" },
-                    attrs: { type: "button" },
-                    on: { click: _vm.showForm2 }
-                  },
-                  [_vm._v("Change")]
-                )
-              ]),
-              _vm._v(" "),
-              _c("br"),
-              _vm._v(" "),
-              _c(
-                "ul",
-                _vm._l(_vm.chosenComponents, function(component) {
-                  return _c(
-                    "li",
-                    { key: component.id, staticClass: "list-group-item" },
-                    [
-                      _c("img", {
-                        staticClass: "card-icon-custom",
-                        attrs: {
-                          src: "assets/img/icons/" + component.path + ".png",
-                          alt: ""
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("p", { staticClass: "component-name" }, [
-                        _vm._v(_vm._s(component.name))
-                      ])
-                    ]
-                  )
-                }),
-                0
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _vm._m(0),
-          _vm._v(" "),
-          _c("br")
-        ])
-      ]
-    )
+    ])
   ])
 }
 var staticRenderFns = [
@@ -38149,7 +38204,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("form", { staticClass: "contact-form" }, [
+    return _c("div", { staticClass: "contact-form" }, [
       _c("div", { staticClass: "row" }, [
         _c("div", { staticClass: "col-md-6" }, [
           _c("label", [_vm._v("Name")]),
@@ -38163,7 +38218,7 @@ var staticRenderFns = [
             _vm._v(" "),
             _c("input", {
               staticClass: "form-control",
-              attrs: { type: "text", placeholder: "Name" }
+              attrs: { type: "text", placeholder: "Name", name: "name" }
             })
           ])
         ]),
@@ -38180,7 +38235,7 @@ var staticRenderFns = [
             _vm._v(" "),
             _c("input", {
               staticClass: "form-control",
-              attrs: { type: "text", placeholder: "Email" }
+              attrs: { type: "text", placeholder: "Email", name: "email" }
             })
           ])
         ])
@@ -38190,7 +38245,11 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("textarea", {
         staticClass: "form-control",
-        attrs: { rows: "4", placeholder: "What can we help you with?" }
+        attrs: {
+          rows: "4",
+          name: "message",
+          placeholder: "What can we help you with?"
+        }
       }),
       _vm._v(" "),
       _c("div", { staticClass: "row" }, [
@@ -38203,7 +38262,8 @@ var staticRenderFns = [
                 display: "block",
                 "margin-left": "auto",
                 "margin-right": "auto"
-              }
+              },
+              attrs: { type: "submit" }
             },
             [_vm._v("Submit request")]
           )

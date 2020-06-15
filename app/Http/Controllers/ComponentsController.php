@@ -92,12 +92,12 @@ class ComponentsController extends Controller
     }
 
     public function comp(){
-        
+
         $components = Component::all();
         $notFinished = Application::where('finished','0')->get();
         return view('component.component')
         ->with('notFinished', $notFinished)
         ->with('components', $components);
-        
+
     }
 }
