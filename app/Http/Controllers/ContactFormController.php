@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ContactFormMail;
 use App\Contactus;
+use App\Application;
 
 class ContactFormController extends Controller
 {
@@ -35,4 +36,15 @@ class ContactFormController extends Controller
         return redirect('contact')
             ->with('message', 'Thanks for your message. We\'ll be in touch.');
     }
+
+    public function list()
+    {
+        $data = Contactus::all();
+        $notFinished = Application::where('finished','0')->get();
+        return view('contactinfo', ['data'=>$data])
+        ->with('notFinished', $notFinished);
+       
+        
+    }
+
 }

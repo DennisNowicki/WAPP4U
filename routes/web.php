@@ -41,6 +41,8 @@ Route::group(['middleware' => 'auth'], function () {
 
 Route::get('contact', 'ContactFormController@create');
 Route::post('contact', 'ContactFormController@store');
+Route::get('contactinfo', 'ContactFormController@list');
+
 
 
 Route::get('/applications', 'BuilderController@store');

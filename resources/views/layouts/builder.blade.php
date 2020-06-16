@@ -46,7 +46,7 @@
                 <li class="nav-item">
                     <a class="nav-link nav-link-icon" href="{{ ('contact') }}">
                         <i class="ni ni-planet"></i>
-                        <span class="nav-link-inner--text" style="font-size: 18px">Contact</span>
+                        <span class="nav-link-inner--text">{{ __('contact') }}</span>
                     </a>
                 </li>
             </ul>

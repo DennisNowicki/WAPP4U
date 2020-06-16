@@ -50,7 +50,7 @@
                 <li class="nav-item">
                     <a class="nav-link nav-link-icon" href="{{ ('contact') }}">
                         <i class="ni ni-planet"></i>
-                        <span class="nav-link-inner--text" style="font-size: 18px">Contact</span>
+                        <span class="nav-link-inner--text">{{ __('contact') }}</span>
                     </a>
                 </li>
             </ul>
@@ -171,7 +171,7 @@
                 <h5 class="description">Got a question? We'd love to hear from you. Click here to go to our contactform and send us your question.
                   </h5>
                 <br>
-                <a href="/contact" class="btn btn-outline-primary btn-round" style="font-size: 25px">Go to contactform</a>
+                <a href="/contact" class="btn btn-outline-primary btn-round btn-lg">Go to contactform</a>
                 
             </div>
         </div>
