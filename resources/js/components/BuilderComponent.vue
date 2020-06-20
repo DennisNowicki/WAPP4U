@@ -25,7 +25,7 @@
 
                             <label for="pageNames">Enter the pages you'd like on your website</label>
                             <textarea name="pageNames" placeholder="Page names" id="pageNames" class="form-control"
-                                rows="3"></textarea>
+                                rows="3" v-model="pageNames"></textarea>
 
                             <br><br>
                             <label for="description">Please describe your idea</label>
@@ -40,11 +40,11 @@
 
                     <div v-show="form2">
                         <div class="form-group d-flex flex-wrap">
-                             <label v-for="component in components" :key="component.id" :for="component.name" class="component-name" v-on:click="log()">
+                             <label v-for="component in components" :key="component.id" :for="component.name" class="component-name">
                                 <a class="component-anchor">
                                 <div class="card" style="width: 11rem;">
                                     <div class="card-body text-center center">
-                                        <input type="checkbox" value=1 :id="component.name" :name="component.path" v-on:click="addComponent(component)">
+                                        <input style="visibility: hidden;" type="checkbox" value=1 :id="component.name" :name="component.path" v-on:click="addComponent(component)">
                                         <p class="component-name" >{{ component.name }}</p>
                                         <img :src="'assets/img/icons/' + component.path + '.png'" class="component-icon"
                                             alt="">
@@ -53,9 +53,9 @@
                             </a>
                             </label>
                         </div>
-                        <button type="button" class="btn btn-primary" v-on:click="showForm1">Previous</button>
+                        <button type="button" class="btn btn-primary" v-on:click="showForm1()">Previous</button>
                         <button type="button" class="btn btn-primary float-right"
-                            v-on:click="showForm3">Next</button><br><br>
+                            v-on:click="showForm3()">Next</button><br><br>
                     </div>
                 </div>
 
@@ -70,6 +70,9 @@
                             </li>
                             <li class="list-group-item">
                                 {{ amountPages }}
+                            </li>
+                            <li class="list-group-item">
+                                {{ pageNames }}
                             </li>
                             <li class="list-group-item">
                                 {{ message }}
@@ -174,8 +177,8 @@
                 usageType: '',
                 amountPages: '',
                 message: '',
+                pageNames: '',
                 components: [],
-                component_id: '',
                 chosenComponents: []
             }
         },
@@ -221,9 +224,6 @@
                 }
                 console.log(this.chosenComponents);
                 console.log(this.components);
-            },
-            log: function () {
-                console.log('clicked');
             }
         }
     }

@@ -17,10 +17,8 @@ class ComponentsController extends Controller
      */
     public function index()
     {
-        // Get components
         $components = Component::paginate(50);
 
-        // Return collection of components as a resource
         return ComponentResource::collection($components);
     }
 
@@ -56,12 +54,9 @@ class ComponentsController extends Controller
      */
     public function show($id)
     {
-        // Get component
         $component = Component::findorFail($id);
 
-        // Return a single component as a resource
         return new ComponentResource($component);
-
     }
 
     /**
@@ -83,7 +78,6 @@ class ComponentsController extends Controller
      */
     public function destroy($id)
     {
-        // Get component
         $component = Component::findorFail($id);
 
         if($component->delete()) {

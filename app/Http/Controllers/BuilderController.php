@@ -20,6 +20,7 @@ class BuilderController extends Controller
         $post->applicationDescription = $request->applicationDescription;
         $post->pageCount = $request->amountPages;
         $post->pageName = $request->pageNames;
+
         if($request->admin_ico === null) {
             $post->adminBoolean = 0;
         } else {

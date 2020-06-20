@@ -2073,6 +2073,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2083,8 +2086,8 @@ __webpack_require__.r(__webpack_exports__);
       usageType: '',
       amountPages: '',
       message: '',
+      pageNames: '',
       components: [],
-      component_id: '',
       chosenComponents: []
     };
   },
@@ -2133,9 +2136,6 @@ __webpack_require__.r(__webpack_exports__);
 
       console.log(this.chosenComponents);
       console.log(this.components);
-    },
-    log: function log() {
-      console.log('clicked');
     }
   }
 });
@@ -37810,12 +37810,29 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _c("textarea", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.pageNames,
+                        expression: "pageNames"
+                      }
+                    ],
                     staticClass: "form-control",
                     attrs: {
                       name: "pageNames",
                       placeholder: "Page names",
                       id: "pageNames",
                       rows: "3"
+                    },
+                    domProps: { value: _vm.pageNames },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.pageNames = $event.target.value
+                      }
                     }
                   }),
                   _vm._v(" "),
@@ -37891,12 +37908,7 @@ var render = function() {
                       {
                         key: component.id,
                         staticClass: "component-name",
-                        attrs: { for: component.name },
-                        on: {
-                          click: function($event) {
-                            return _vm.log()
-                          }
-                        }
+                        attrs: { for: component.name }
                       },
                       [
                         _c("a", { staticClass: "component-anchor" }, [
@@ -37912,6 +37924,7 @@ var render = function() {
                                 { staticClass: "card-body text-center center" },
                                 [
                                   _c("input", {
+                                    staticStyle: { visibility: "hidden" },
                                     attrs: {
                                       type: "checkbox",
                                       value: "1",
@@ -37955,7 +37968,11 @@ var render = function() {
                   {
                     staticClass: "btn btn-primary",
                     attrs: { type: "button" },
-                    on: { click: _vm.showForm1 }
+                    on: {
+                      click: function($event) {
+                        return _vm.showForm1()
+                      }
+                    }
                   },
                   [_vm._v("Previous")]
                 ),
@@ -37965,7 +37982,11 @@ var render = function() {
                   {
                     staticClass: "btn btn-primary float-right",
                     attrs: { type: "button" },
-                    on: { click: _vm.showForm3 }
+                    on: {
+                      click: function($event) {
+                        return _vm.showForm3()
+                      }
+                    }
                   },
                   [_vm._v("Next")]
                 ),
@@ -38017,6 +38038,14 @@ var render = function() {
                     _vm._v(
                       "\n                            " +
                         _vm._s(_vm.amountPages) +
+                        "\n                        "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("li", { staticClass: "list-group-item" }, [
+                    _vm._v(
+                      "\n                            " +
+                        _vm._s(_vm.pageNames) +
                         "\n                        "
                     )
                   ]),
