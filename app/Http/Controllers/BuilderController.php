@@ -115,5 +115,6 @@ class BuilderController extends Controller
         $post->message = $request->message;
         $post->finished = 0;
         $post->save();
+        return redirect('builder');
     }
 }
