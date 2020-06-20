@@ -23,11 +23,17 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/dashboard', 'HomeController@index')->name('dashboard');
 Route::get('/builder', 'BuilderController@show')->name('builder');
+
+Route::get('/dashboard', 'HomeController@index')->name('dashboard');
+
 Route::get('/application', 'ApplicationController@overview')->name('application');
-Route::get('/components', 'ComponentsController@comp')->name('component');
 Route::get('/application/pdfexport/{id}', 'ApplicationController@pdf');
+Route::get('/application/finish/{id}','ApplicationController@finish');
+
+Route::get('/components', 'ComponentsController@comp')->name('component');
+Route::post('/components/update/{id}','ComponentsController@update');
+
 
 Route::group(['middleware' => 'auth'], function () {
 	Route::resource('user', 'UserController', ['except' => ['show']]);

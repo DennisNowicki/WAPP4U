@@ -10,5 +10,5 @@ class Application extends Model
     protected $table = 'applications';
     public $primaryKey = 'id';
     public $timestamps = false;
-
+    protected $fillable = ['finished'];
 }

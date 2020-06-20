@@ -100,4 +100,14 @@ class ComponentsController extends Controller
         ->with('components', $components);
 
     }
+
+    public function update(Request $request, $id){
+
+        $component = Component::find($id);
+        $component->fee = $request->input('fee');
+        $component->minHours = $request->input('minHours');
+        $component->maxHours = $request->input('maxHours');
+        $component->save();
+        return redirect('/components');
+    }
 }

@@ -56,11 +56,10 @@
                                             <div class="container-fluid">
                                                 <div class="row">
                                                     <div class="col-md-12 col-sm-12 col-xs-12 mb-4">
-                                                        
-                                                        <a href="/application/pdfexport/{{$app->id}}" class="btn btn-primary float-right ml-2">Generate PDF</a>
+                                                        <a href="/application/pdfexport/{{$app->id}}" target="_blank" class="btn btn-primary float-right ml-2">Generate PDF</a>
                                                         @if (!$app->finished)
-                                                            <a href="/application" class="btn btn-primary float-right ml-2">Mail PDF</a>
-                                                            <a href="" class="btn btn-primary float-right">Finish</a>
+                                                            <a href="/application/" class="btn btn-primary float-right ml-2">Mail PDF</a>
+                                                            <a href="/application/finish/{{$app->id}}" class="btn btn-primary float-right ml-2">Finish</a>
                                                         @endif
                                                     </div>
                                                 </div>
