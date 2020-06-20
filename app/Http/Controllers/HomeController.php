@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Application;
+use App\Contactus;
 
 class HomeController extends Controller
 {
@@ -39,7 +40,8 @@ class HomeController extends Controller
         $support = Application::where('supportBoolean','1')->get();
         $file = Application::where('fileBoolean','1')->get();
         $user = Application::where('userBoolean','1')->get();
-        
+        $contact = Contactus::all();
+
         return view('dashboard')
         ->with('applications', $applications)
         ->with('admin', $admin)
@@ -57,6 +59,8 @@ class HomeController extends Controller
         ->with('support', $support)
         ->with('file', $file)
         ->with('user', $user)
-        ->with('notFinished', $notFinished);
+        ->with('notFinished', $notFinished)
+        ->with('contact', $contact)
+        ;
     }
 }

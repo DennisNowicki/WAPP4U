@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Application;
 use App\Component;
+use App\Contactus;
 use PDF;
 
 class ApplicationController extends Controller
@@ -19,6 +20,7 @@ class ApplicationController extends Controller
         ->with('applications', $applications)
         ->with('notFinished', $notFinished)
         ->with('finished', $finished);
+        
     }
 
     public function pdf($id)
@@ -32,4 +34,24 @@ class ApplicationController extends Controller
         $filename = $application->name;
         return $pdf->stream($filename . '.pdf');
     }
+
+    public function finish($id)
+    {
+        $app = Application::find($id);
+        $app->finished = 1;
+        $app->save();
+        return redirect('application');
+    }
+
+
+    public function ship(Request $request, $orderId)
+    {
+        $order = Order::findOrFail($orderId);
+
+        // Ship order...
+
+        Mail::to($request->user())->send(new OrderShipped($order));
+    }
+
+
 }

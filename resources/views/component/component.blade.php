@@ -23,10 +23,10 @@
                             <table class="table table-flush" id="datatable-basic">
                                 <thead class="thead-light">
                                     <tr>
-                                        <th>Name</th>
-                                        <th>Fees</th>
-                                        <th>Min Hours</th>
-                                        <th>Max Hours</th>
+                                        <th >Name</th>
+                                        <th style="min-width: 120px">Fees</th>
+                                        <th style="min-width: 130px">Min Hours</th>
+                                        <th style="min-width: 130px">Max Hours</th>
                                         <th>Update</th>
                                     </tr>
                                 </thead>
@@ -34,10 +34,13 @@
                                     @foreach ($components as $comp)
                                         <tr>
                                             <td style="font-size: 30px"><img style="max-width: 35px; height: auto; margin-right:20px" src=" assets/img/icons/{{$comp->path}}.png" alt="{{$comp->name}}">{{$comp->name}}</td>
-                                            <td><input type="number" class="form-control" placeholder="{{$comp->fee}}"></td>
-                                            <td><input type="number" class="form-control" placeholder="{{$comp->minHours}}"></td>
-                                            <td><input type="number" class="form-control" placeholder="{{$comp->maxHours}}"></td>
-                                            <td><a href="" class="btn btn-info">Update</a></td>
+                                            <form action="/components/update/{{$comp->id}}" method="POST" >
+                                                @csrf
+                                            <td><input type="number" class="form-control" name="fee" id="fee" value="{{$comp->fee}}" placeholder="{{$comp->fee}}"></td>
+                                            <td><input type="number" class="form-control" name="minHours" id="minHours" value="{{$comp->minHours}}" placeholder="{{$comp->minHours}}"></td>
+                                            <td><input type="number" class="form-control" name="maxHours" id="maxHours" value="{{$comp->maxHours}}" placeholder="{{$comp->maxHours}}"></td>
+                                            <td><button type="submit" class="btn btn-primary">Update</button></td>
+                                            </form>
                                         </tr>
                                     @endforeach
                                 </tbody>
