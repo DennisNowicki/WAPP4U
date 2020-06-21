@@ -16,7 +16,8 @@
 </head>
 
 <body>
-    <!-- start navbar -->
+    @include('sweetalert::alert')
+
 <nav class="navbar navbar-expand-lg fixed-top bg-dark">
     <div class="container">
         <div class="navbar-translate">
