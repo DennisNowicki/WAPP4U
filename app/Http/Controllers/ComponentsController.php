@@ -102,6 +102,7 @@ class ComponentsController extends Controller
         $component->minHours = $request->input('minHours');
         $component->maxHours = $request->input('maxHours');
         $component->save();
+        toast('Component updated!','success');
         return redirect('/components');
     }
 }

@@ -1,8 +1,8 @@
 <div class="row align-items-center justify-content-xl-between">
     <div class="col-xl-6">
         <div class="copyright text-center text-xl-left text-muted">
-            &copy; {{ now()->year }} <a href="https://www.creative-tim.com" class="font-weight-bold ml-1" target="_blank">Creative Tim</a> &amp;
-            <a href="https://www.updivision.com" class="font-weight-bold ml-1" target="_blank">Updivision</a>
+            &copy; {{ now()->year }} <a href="https://www.facebook.com/BelQode-Webdesign-110016797307341/" class="font-weight-bold ml-1" target="_blank">BelQode Webdesign</a> &amp;
+            <a href="" class="font-weight-bold ml-1" target="_blank"> Dennis Nowicki &amp Youssef Khrichef</a>
         </div>
     </div>
     <div class="col-xl-6">
@@ -12,6 +12,9 @@
             </li>
             <li class="nav-item">
                 <a href="/builder" class="nav-link" target="_blank">Builder</a>
+            </li>
+            <li class="nav-item">
+                <a href="/contact" class="nav-link" target="_blank">Contact</a>
             </li>
             <li class="nav-item">
                 <a href="/dashboard" class="nav-link" target="_blank">Dashboard</a>

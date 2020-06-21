@@ -7,6 +7,8 @@ use App\Application;
 use App\Component;
 use App\Contactus;
 use PDF;
+Use Alert;
+
 
 class ApplicationController extends Controller
 {
@@ -40,7 +42,9 @@ class ApplicationController extends Controller
         $app = Application::find($id);
         $app->finished = 1;
         $app->save();
+        toast('Application finished!','success');
         return redirect('application');
+        
     }
 
 

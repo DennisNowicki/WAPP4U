@@ -3,10 +3,10 @@
 @section('content')
     @include('users.partials.header', [
         'title' => __('Hello') . ' '. auth()->user()->name,
-        'description' => __('This is your profile page. You can see the progress you\'ve made with your work and manage your projects or assigned tasks'),
+        'description' => __('This is your application page. You can see the progress you\'ve made with your work and manage your projects.'),
         'class' => 'col-lg-7'
     ])   
-
+@include('sweetalert::alert')
     <div class="container-fluid mt--7">
         <div class="row">
             <div class="col-xl-12 order-xl-1">

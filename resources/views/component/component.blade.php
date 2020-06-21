@@ -6,7 +6,7 @@
         'description' => __('This is your components page. You can edit the fees of your components and the amount of hours you need to make them.'),
         'class' => 'col-lg-7'
     ])   
-
+@include('sweetalert::alert')
     <div class="container-fluid mt--7">
         <div class="row">
             <div class="col-xl-12 order-xl-1">
