@@ -151,7 +151,7 @@
                             </div>
                         </div>
                         <label>Message</label>
-                        <textarea class="form-control" rows="4" name="message" placeholder="What can we help you with?"></textarea>
+                        <textarea class="form-control" rows="4" name="message" placeholder="What can we help you with?" required></textarea>
                         <div class="row">
                             <div class="col-12">
                                 <button style="display: block; margin-left: auto; margin-right: auto;"
