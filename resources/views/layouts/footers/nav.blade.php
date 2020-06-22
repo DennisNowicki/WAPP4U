@@ -1,8 +1,8 @@
 <div class="row align-items-center justify-content-xl-between">
     <div class="col-xl-6">
         <div class="copyright text-center text-xl-left text-muted">
-            &copy; {{ now()->year }} <a href="https://www.facebook.com/BelQode-Webdesign-110016797307341/" class="font-weight-bold ml-1" target="_blank">BelQode Webdesign</a> &amp;
-            <a href="" class="font-weight-bold ml-1" target="_blank"> Dennis Nowicki &amp Youssef Khrichef</a>
+            &copy; {{ now()->year }} <a href="https://www.facebook.com/BelQode-Webdesign-110016797307341/" class="font-weight-bold ml-1" target="_blank">BelQode Webdesign</a>
+            <a href="" class="font-weight-bold ml-1" target="_blank">&amp Dennis Nowicki &amp Youssef Khrichef</a>
         </div>
     </div>
     <div class="col-xl-6">
